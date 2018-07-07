@@ -1,0 +1,475 @@
+http://xmetrik.stimata.ac.id/index.php/laporan/invoiceInputReturRusak/20180405-2-HRS-0003
+uang double keluar
+
+
+
+
+
+
+
+
+
+
+
+
+http://xmetrik.stimata.ac.id/index.php/laporan/invoiceInputReturRusak/20180328-2-HRS-0001
+harusnya hp dan uang saja yang keluar imeynya di tabel pengembalian(uang artinya nominalnya)
+
+belum fix terbaru
+//laporan koreksi uang tidak usah dimunculkan => fix
+//pencarian barang dimutasi belum muncul untuk user gudang => fix
+//nota retur supliyer formatnya kolom kebawah => untuk tampil barang lama imey masih salah , harusnya yang tampil adalah imey barang lama dan jumlahnya
+//mutasi untuk uang tidak usah ditampilkan
+
+
+
+
+
+
+//upload data stok awal
+
+
+setia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//yang belum dikerjakan
+1. retur harga, rusak, retur customer, penjualan => mutasi
+2. invoice =>pengembalian retur harga, rusak , customer;
+3. invoice cetak nota pengembalian retur rusak dan retur harga;
+
+
+
+
+
+
+
+
+
+
+
+
+
+cancel disimpan dihistory belum
+
+
+
+pengiriman di toko tidak usah ngatur harga dan update stoknya untuk idsumbernya tetep ke gudang bukan ke toko
+
+koreksi stok => hanya ada digudang dan superadmin
+koreksi barang, keterangan
+
+id tr lain-
+jenis => pemasukan, pengeluaran
+nominal 
+keterangan
+tgl
+user
+toko
+//===================================
+di pengiriman tombol set harga => jika sudah diset maka yang tampil adalah harga beli dan harga jual yang sekarang
+di pengiriman => harga beli di tujuan adalah harga jual di sumber
+
+
+
+
+
+
+
+
+transaksi history barang masuk dan keluar
+
+
+
+laporan yang ada digudang
+retur customer
+pindah barang antar toko
+penjualan=> selisih harga jual dan harga beli
+report lain-lain =>
+laporan koreksi => sudah digudang
+laporan barang gantung disupliyer => sudah diretur tapi belum dikembalikan oleh supliyer
+laporan mutasi stok => header => tanggal dan id barang(yang dropdown diambil dari master harga)
+mutasi toko => 
+
+
+laporan yang ada ditoko =>
+mutasi diri sendiri
+
+
+
+
+
+
+
+
+
+
+1 kirim ke toko tgl brp
+2 koreksi tgl 
+10 pengadaan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================
+////untuk perbaikan dimasa depan 
+//untuk transaksinya lebih baik untuk imey hp dan imey non hp dijadikan satu jadi misal, tabel pengiriman, ada h_pengiriman, d_pengiriman dan imey_pengiriman
+2015-05-11 05:07:55
+2017-03-15 11:07:22
+
+table
+tambah table mst_return
+table mst_hp field status diubah menjadi varchar(25)
+table h_temp ditambah field is_hp tinyint(1)
+table mst_hp imey dijadikan primary key
+
+
+#jangan lupa 
+di proses retur ketika sesion pertama sudah disimpan harusnya tombol simpan header hilang
+
+#tombol notif
+notif ada pengiriman barang => gudang, toko
+notif ada retur barang => gudang, superadmin,
+notif order barang => gudang, superadmin
+
+
+#notifnya le belum sama sekali
+//field is retur digunakan untuk menampung id transaksi yang sedang terjadi di tabel mst stok
+
+//modif terakhir boz
+status barang
+0 = tersedia
+1 = terjual
+2 = retur
+3 = proses kirim
+4 = proses koreksi barang
+
+//catatan untuk penjualan
+jenis bayar => 0 untuk tunai 1 = untuk non tunai
+
+jika penjualan non tunai maka jenis bayar 1 dan field bank dan nomer referensi adalah diisi sesuai
+jike penjualan tunai maka
+1. field bank = diisi dengan jumlah bayar
+2. field no_ref = diisi dengan jumlah kembalian
+
+//imey selain hp juga difungsikan juga
+//sampai menampilkan imey retur di show table temporari
+untuk logika jumlah => jika imey dihapus maka select count berdasarkan id detail kemudian update field jumlah di table detail dengan jumlah count tadi
+
+
+
+//delete detail retur untuk hp dan non hp
+//prosesDeleteDetailRetur
+
+//ubah switch on of dengan kata-kata komplain dan non komplain
+
+
+//jika pengiriman status retur apapun 
+maka jumlah barang yang masuk adalah barang yang bukan status retur
+
+
+
+#sampai pada show detail barang retur pengadaan
+# sampai pada function simpanPenerimaan($idh_pengiriman = null) { transaksi_model
+//update harga beli, simpan hanya yang berstatus tidak trouble, status trouble menjadi tanda bagi pengirim bahwa ada barang yang tidak sesuai dengan kiriman
+//update mst stok jadikan id_toko menjadi tempat yang baru disertai dengan update is_retur = 0 dan status = 0(availabel)
+
+
+cek penerimaan
+untuk cek harga sukses
+tinggal cek jika barang ada complain => sip sukses
+
+//notifikasi
+1. jika ada barang complain dari pengiriman = > superadmin, gudang
+2. jika ada gudang/toko yang meminta permintaan barang => superadmin,gudang
+3. jika ada gudng/ toko yang melakukan retur barang => 
+4. jika ada pengiriman ke toko atau gudang
+5. jika melakukan permintaan baik yang meminta maupun yang melakukan permintaan
+
+pengirim maupun tujuan maka harus ada notifikasi
+
+
+complain, permintaan, retur, pengiriman
+#untuk menentukan template didapat dari session -> status => superadmin,admin,kepala toko sales kasir
+
+# penanggung jawab yang menandai laporan dan tiap laporan ada colom field untuk ditampilkan dan tidk ditampilkan
+
+sampai di set sudah dibaca untuk reject dan retur
+==================================================
+update mst_stok belum untuk retur customer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#eror ketika user edit password
+update user toko pada password
+
+#====== tambahan baru
+#stok barang untuk yang tipe hape ada vasilitas lihat imey
+//combo retur dari gudang dan toko belum
+gudang => superadmin dan suppliyer
+toko => gudang
+superadmin => suppliyer
+//====================================================================
+untuk stok barang yang bertipe hp bisa cek imey 
+untuk kolom keterangan bisa diedit di proses transaksi
+
+# untuk retur harga maka inputannya adalah langsung isian barang sesuai dengan isian retur(pada proses pengadaan) => jumlahnya mesti sama
+# untuk retur rusak
+
+
+barang pengadaan yang berasal dari retur dibedakan dengan barang pengadaan yang berasal dari pengadaan awal
+untuk header pengadaan retur isinya
+suppliyer, nonota, tanggal nota, =
+
+untuk penentuan harga tetap 
+
+retur harga => bisa mengganti harga beli (barang adalah diambil dari retur awal)
+retur rusak => harga beli adalah harga harga lama (bisa nginputkan barang baru)
+
+
+#toko
+//transaksi penjualan fisik dan elektrik
+//fisik => aksesoris
+//elektrik => 
+penjualan fisik => id_transaksi(otomatis, tgl(otomais),id_user,id_customer, id_barang, jumlah(mengikuti imey yang discan), harga jual(otomatis), harga beli(otomatis), diskon, imey
+(bisa pencarian berdasarkan id barang, nama, dan imey)
+
+penjualan non fisik=> id_transaksi, tgl, id_user, id_customer, id_barang(pencarian sama tidak ada imey),no_pelanggan(hp ato pln)(nginputkan manual),harga jual(bisa dirubah), 
+penjualan satu table
+
+mst_stok ada kolom diskon => juga ada log untuk mencatat siapa yang melakukan perubahan diskon, tgl, dst => tabel diskon barang => id_toko, id_barang, diskon => transaksi diskon
+
+#tabel customer untuk masing2 toko => id_customer,id_toko,nama,alamat, nomer telp,agenid(varchar)
+retur customer => berdasarkan id penjualan => transaksi sendiri
+
+
+perubahan final
+1. pengadaan penambahan potongan => potongan dan diskon (pilih salah satu)=> ada tanda yang aktif apakah diskon maupun potongan dan diseblahnya sebagai informasi terdapat kolom harga harga beli =>fix
+2. tampian imey dibawah hp => fix
+3. harga jual dihilangkan pada transaksi pengadaan dan pengiriman(ketika proses pengiriman dan harga jual belum disetting maka proses pengiriman tidak bisa dilakukan)
+4. diskon, potongan, harga jual => disetting dimasing2 gudang =>fix
+5. transaksi pengiriman => ketika proses memasukkan jumlah barang ttt, dan harga jual belum disetting maka proses ditolak(harus menginputkan harga jual terlebih dahulu)
+6. transaksi pengiriman => prioritas akhir(ketika datatable disearch dan dienter maka record yang ditemukan langsung masuk ke keranjang belanja)
+7. transaksi pengiriman imey dimunculkan dibawah record
+
+#retur supliyer => retur harga dan retur rusak
+=>ReturHarga=> searching berdasarkan retur harga yang pernah dilakukan, kemudian muncul barang2 yang telah diretur harga, disamping barang tersebut muncul inputan untuk harga baru
+-> table header => idh_retur harga,idSupliyer, no_nota, tanggal_nota, id_h_retur, => pengadaan yang berasal dari retur
+-> table detail => idd_retur_harga, idh_retur harga, idbarang, harga_beli_lama, harga_beli_rata2(baru)
+-> table imey retur harga => idimey_retur_harga, idd_retur_harga, imey => untuk mencatat perjalanan barang dari mana ke mana
+
+=> Retur Rusak
+-> table header -> idh_retur rusak, idsupliyer, no_nota, tgl_nota, id_retur_rusak
+-> table detail -> idd_retur_rusak, idd_retur_rusak(untuk menymabungkan id pengadaan yang berasal dari retur dan transaksi retur yang lama),id_barang, harga_beli_lama(otomais dari database-> inputan pas ngirim retur), harga_baru(inputan)(jika ada stok maka harga rata2 yang berlaku), jumlah, diskon, keterangan, => di detail inputan barang baru disebelah barang yang lama untuk memudahkan
+-> table imey retur harga => idimey_retur_harga, idd_retur_harga, imey => untuk mencatat perjalanan barang dari mana ke mana
+#tko
+1. transaksi penjualan fisik ada field untuk diskon dan potongan => untuk non fisik tidak pakek 
+2. transaksi penjualan fisik untuk pemotongan langsung muncul sesuai yang disetting di gudang hanya saja bisa dirubah
+3. 
+
+
+#retur customer
+berdasarkan id_penjualan=> muncul list barang penjualan => dicentang barang yang mau diretur(status barang yang diretur customer adalah ready = 0)
+
+
+
+#stok
+transaksi koreksi stok barang... idh_koreksi, tanggal,id pegawai => detail -> idd_koreksi, idh_koreksi, idBarang, imey,keterangan
+(gudang-> gudang bisa ngoreksi stok toko dibawahnya)=>transaksi koreksi stok
+
+transaksi koreksi bisa mengurangi dan menambah barang => untuk barang yang sudah pernah dimasukkan ke mst_stok
+
+stok opname===
+membandingkan barang nyata dengan barang yang sudah dimsukkan ke database apakah ada kekurangan
+sekali cek
+sekali transaksi untuk banyak barang
+
+
+# resume tekan video
+harga potongan dan harga diskon di pengadaan dan penjualan(ditoko)=>fix
+
+
+#=======================
+untuk update user gurung cuy
+harga beli belum berganti ketika proses penerimaan
+cek update harga beli di pengadaan dan penerimaan
+chosen untuk penjualan non fisik jek menclek jaya abadi =>fix
+
+insert penjualan non fisik cek table =>fix
+dijadikan dua table table fisik dan non fisik =>fix
+tapi harganya satu =>fix
+
+sampai di retur harga token id header
+
+
+//untuk penetapan harga jual ada tampilan harga beli untuk barang yang bersangkutan ->fix
+imey untuk hp di penjualan belum keluar =>fix
+harga barang untuk non fisik juga ditetapkan oleh gudang
+rubah alur penjualan non fisik jadi cuman input id, jenis barng, dan nomer pelanggan untuk harga otomatis =>fix
+non fisik ketika cancel belum terhapus =>fix
+
+retur customer => bisa untuk barang non fisik dan fisik => durung jon seng kudu mari disek
+
+
+simpan transaksi retur harga insyalllah wes fix
+
+//untuk transaksi retur harga seharusnya yang tampil dilist barang adalah barang secara keseluruhan ketika diklik maka langsung semua barang yang tersedia distok masuk
+hp juga begitu
+
+
+
+//list imey rusak
+jika berupa hp maka yang tampil adalah tombol dan input text
+jika berupa non hp maka yang tampil adalah tombol dan input number
+
+
+
+
+
+//untuk retur pengadaan harga barang harga lama adalah harga ketika pengadaan barang
+//untuk proses retur harga harga lama diambil dari d_pengadaan
+//untuk retur harga ditambahi satu kolom untuk id pengadaan => ketika diklik list barang maka nanti 
+akan muncul list barang sesuai dengan nota yang dipilih => hal ini juga berlaku ketika proses pengiriman ke gudang maupun toko => jadi ketika
+toko maupun gudang mau melakukan retur maka harga lama adalah harga pas proses pengadaan ato proses pengiriman
+
+
+//retur rusak kurang
+ketika proses harusnya ada notif anda akan melakukan ....
+untuk barang dengan jenis hp belum masuk kedalam temp retur rusak
+
+
+//temp retur rusak
+1. pertama cek apakah di punya tanggungan yang belum diselesaikan
+jika tidak punya maka tampilkan data yang dipilih
+jika punya maka cek apakah tanggungannya tersebut telah diselesaikan oleh orang lain apa belum
+    jika sudah
+        maka hapus temporari tanggungan dan tampilkan data sesuai yang dipilih
+    jika belum maka tampilkan data tanggungannya
+
+
+
+//sampai di insert imey retur rusak ketika mau tambah
+
+//sampai insert imey retur rusak 
+
+
+//testing insert non hp sukses ]
+
+insert hp belum dicoba
+masih ada error di showDetail(
+jquery
+
+imey non hp di imey retru rusak seharusnya bukan imeynonhp tapi adalah imeynya berapa
+update stok hanya masuk yang insert baru saja => yang lama tidak masuk => untuk yang non hp saja
+
+updateStokReturRusak => wes fix kabeh
+
+
+
+//retur customer
+mengidentifikasi barang yang akan di retur customer dan menginputkan idh_penjualan di id_supliyer
+
+temporari tabel retur customer
+penyimpann keterangan alasan rusak barang 
+alur sama dengan retur rusak
+==> alur=> ketika pertama kali di pilih retur maka yang terjadi adalah insert headernya terlebih dahulu, tabel yang ditampilkan adalah tabel dari penjualan
+ketika proses retur maka akan merubah imey penjualan dan insert record ke detail temporari
+mst stok berubah ketika user menyimpan transaksi yang dilakukan 
+
+//untuk retur customer dimasukkan di h_retur colom id_supliyer diisi dengan idh_penjualan
+
+dibawah insert retur customer ada tabel untuk list barang yang sudah masuk temporari
+
+
+//proses show list imey ketika retur
+reload status ketika tombol retur ditekan
+simpan retur customer mulai itu
+status barang dimst stok belum dirubah
+status barang dimst stok dirubah ketika proses simpan retur, jadi bukan pas saat proses memasukkan ke temporari
+$idh_retur = $this->general->genNumberTemp('h_retur', 'idh_retur', $this->id_user, 'HRT', 4),
+$idd_retur = $this->general->genNumberTemp('d_retur', 'idd_retur', $this->id_user, 'DRT', 4),
+
+
+
+retur customer => barang non fisik bisa masuk => fix
+
+//sampai di insert retur customer non fisik => insert ke dtem retur customer
+ketika baran sudah diretur dimasa lalu kemudian ada orang yang mencoba meng unretur di masa datang => harusnya tidak bisa => fix
+
+
+proses save retur harusnya merubah status barang di mst_stok
+=============================================
+untuk retur rusak => bisa diganti uang dan diganti barang lain
+retur customer => barang non fisik bisa masuk => fix kurang update mst_stok
+
+
+http://localhost/xmetrik/index.php/umum/showImeyReturRusak/20170609-2-TRS-0001/BUZZER-0000001/0
+insert temp retur rusak yang ganti jenis barang
+
+
+//sampai diproses retur imey rusak function prosesSimpanImeyRetur_rusak => tr_model
+dan update stok dengan macam2 kondisi, sejenis, lainjenis dan uang
+
+insertReturRusak()
+//-----------------------------------
+insert retur rusak untuk uang ketika masuk ke mst stok idnya masih 0
+
+
+//-----------------------------------------------------
+
+laporan rentang pengadaan barang filter berdasarkanjenis barang masih ada record yang double=>fix
+
+untuk stok => bisa melihat stok di user bawahnya => tambahi filter diatasnya => semua, sendiri, gudang, toko =>fix
+
+laporan stok => pencarian berdasarkan imey, harusnya tampil imey yang bersangkutan saja =>fix
+
+untuk tujuan di pengiriman belum keluar keterangannya

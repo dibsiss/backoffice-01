@@ -1,0 +1,14 @@
+@import url("../template/bootstrap/css/bootstrap.css");
+
+@media print {
+body { background:white; color:black; margin:0 }
+*{
+	color:black;
+	font-size:10px;
+}
+
+table, th, td {
+			font-size : 10px;
+		}
+
+}

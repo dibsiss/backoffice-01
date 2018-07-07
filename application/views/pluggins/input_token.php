@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="<?php echo base_url('assets/plugins/input_token/css/token-input-facebook.css') ?>">
+<script src="<?php echo base_url('assets/plugins/input_token/js/jquery.tokeninput.js') ?>"></script>

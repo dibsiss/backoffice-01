@@ -1,0 +1,6 @@
+gimana caranya ditiap table jika barang yang sudah dibeli ataau dilakukan transaksi maka jika terdapat proses transaksi tersebut langsung dikenakan fungsi yang telah dibuat tadi
+insert pengadaan update harga beli
+
+
+
+#simpan penerimaan memunculkan notifikasi saat keterangan tidak diisi

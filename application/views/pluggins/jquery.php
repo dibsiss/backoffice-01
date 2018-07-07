@@ -1,0 +1,2 @@
+<script src="<?php echo base_url('assets/plugins/datatable_serverside/js/jquery-1.11.2.min.js') ?>" ></script>
+<script src="<?php echo base_url() ?>/assets/template/bootstrap/js/bootstrap.min.js"></script>
